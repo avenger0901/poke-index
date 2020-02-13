@@ -29,7 +29,9 @@ export default class App extends Component{
         ): (
         <div>
           <Header/>
-          <PokeList pokemon={this.state.pokeData}/>
+          <div className="all-images">
+            <PokeList pokemon={this.state.pokeData}/>
+          </div>
         </div>
         )}
   

@@ -7,14 +7,13 @@ class PokeList extends Component {
     render() {
     const dataArry= this.props.pokemon;
     return (
-        <div>
+        <div className="all-pokes">
              {dataArry.map((singleObject,i)=>{
              return <PokeItem key={i} image={singleObject.url_image} title={singleObject.pokemon} health={singleObject.hp} ability={singleObject.ability_1}/>
 
 
             })}
             
-        <PokeItem/> 
                 
                  
         </div>
