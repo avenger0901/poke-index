@@ -9,6 +9,7 @@ export default class App extends Component{
   state={
     loading: true,
     pokeData:null,
+
   }
   async componentDidMount(){
     const url = "https://alchemy-pokedex.herokuapp.com/api/pokedex";
@@ -19,6 +20,7 @@ export default class App extends Component{
     console.log(this.state.pokeData);
 
   }
+  
  
 
   render() {
@@ -34,9 +36,6 @@ export default class App extends Component{
           </div>
         </div>
         )}
-  
-       
-    
       </div>
     );
   }
