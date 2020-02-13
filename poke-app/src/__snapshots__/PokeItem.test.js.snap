@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders PokeItem.js correctly 1`] = `
+<div
+  className="poke-image"
+>
+  <div
+    className="all-images"
+  >
+    <img
+      alt=""
+      className="image"
+    />
+  </div>
+  <div />
+  <div />
+  <div />
+</div>
+`;
