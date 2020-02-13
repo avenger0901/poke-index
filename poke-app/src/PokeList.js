@@ -5,16 +5,19 @@ import PokeItem from './PokeItem.js';
 
 class PokeList extends Component {
     render() {
-        
-   
-    
-        return (
-            <div>
+    const dataArry= this.props.pokemon;
+    return (
+        <div>
+             {dataArry.map((singleObject,i)=>{
+             return <PokeItem key={i} image={singleObject.url_image} title={singleObject.pokemon}/>
+
+
+            })}
             
-            <PokeItem/> 
+        <PokeItem/> 
                 
                  
-            </div>
+        </div>
         );
     }
 }

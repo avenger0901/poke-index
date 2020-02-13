@@ -5,7 +5,7 @@ class PokeItem extends Component {
     render() {
         return (
             <div>
-               
+                <img  className ="image" src={this.props.image} alt="" /> 
          
          
               

@@ -1,4 +1,4 @@
-export const pokemon= {
+ const pokemon= {
     count: 801,
     page: 1,
     perPage: 20,
@@ -74,3 +74,5 @@ export const pokemon= {
     pokebase: "bulbasaur",
     pokedex: "http://www.pokemon.com/us/pokedex/bulbasaur"
     }
+    ]};
+    export default pokemon;
