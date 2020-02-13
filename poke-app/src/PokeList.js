@@ -9,7 +9,7 @@ class PokeList extends Component {
     return (
         <div>
              {dataArry.map((singleObject,i)=>{
-             return <PokeItem key={i} image={singleObject.url_image} title={singleObject.pokemon}/>
+             return <PokeItem key={i} image={singleObject.url_image} title={singleObject.pokemon} health={singleObject.hp} ability={singleObject.ability_1}/>
 
 
             })}
