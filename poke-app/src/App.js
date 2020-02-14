@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import './App.css';
 import Header from './Header.js';
 import PokeList from './PokeList.js';
+import Paging from './Paging.js';
 
 
 
@@ -13,15 +14,15 @@ export default class App extends Component{
   }
   async componentDidMount(){
     const url = "https://alchemy-pokedex.herokuapp.com/api/pokedex";
-    const response = await fetch(url);
+    let queryString = window.location.hash.slice(1);
+    const URL = `${url}${queryString}`;
+    const response = await fetch(URL);
     const data = await response.json();
     this.setState({pokeData:data.results, loading:false})
     console.log(data.results);
     console.log(this.state.pokeData);
-
   }
   
- 
 
   render() {
     return (
@@ -34,6 +35,7 @@ export default class App extends Component{
           <div className="all-images">
             <PokeList pokemon={this.state.pokeData}/>
           </div>
+          <Paging/>
         </div>
         )}
       </div>
