@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 
-class Page extends Component {
+class Paging extends Component {
     state={
         page:1,
     }
@@ -35,8 +35,9 @@ updateControls() {
 
 
 render() {
-    const perPage = 10; // this API only does 10 per
+    const perPage = 2; // this API only does 10 per
     const { totalResults } = this.props;
+    console.log(totalResults);
     const queryString = window.location.hash.slice(1);
     const searchParams = new URLSearchParams(queryString);
 
@@ -85,4 +86,4 @@ render() {
     );
 }
 }
-export default Page;
+export default Paging;

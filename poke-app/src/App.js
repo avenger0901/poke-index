@@ -8,8 +8,8 @@ import Paging from './Paging.js';
 
 export default class App extends Component{
   state={
-    loading: true,
-    pokeData:null,
+    loading: false,
+    pokeData:[],
 
   }
   async componentDidMount(){
@@ -18,13 +18,25 @@ export default class App extends Component{
     const URL = `${url}${queryString}`;
     const response = await fetch(URL);
     const data = await response.json();
-    this.setState({pokeData:data.results, loading:false})
+    const totalResults = response.totalResults;
+    console.log(totalResults);
+    if(data.Reseponse ==="False"){
+      return {
+        Search:[],
+        totalResults:0
+      }
+    }
+    this.setState(
+      {pokeData:data.results, 
+      totalResults: totalResults,
+      loading:false})
     console.log(data.results);
     console.log(this.state.pokeData);
   }
   
 
   render() {
+    const totalResults = this.state;
     return (
       <div>
         {this.state.loading || !this.state.pokeData?(
@@ -35,7 +47,7 @@ export default class App extends Component{
           <div className="all-images">
             <PokeList pokemon={this.state.pokeData}/>
           </div>
-          <Paging/>
+          <Paging totalResults ={totalResults}/>
         </div>
         )}
       </div>
