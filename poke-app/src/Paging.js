@@ -35,7 +35,7 @@ updateControls() {
 
 
 render() {
-    const perPage = 2; // this API only does 10 per
+    const perPage = 20; // this API only does 10 per
     const { totalResults } = this.props;
     console.log(totalResults);
     const queryString = window.location.hash.slice(1);
@@ -54,7 +54,7 @@ render() {
       return <p className="paging">No results, try another search</p>;
     }
 
-    const lastPage = Math.ceil(totalResults / perPage);
+    const lastPage = Math.ceil(this.props.totalResults / perPage);
     return (
         <div>
             <p className="paging">

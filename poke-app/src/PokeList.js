@@ -15,7 +15,7 @@ class PokeList extends Component {
         const queryString = window.location.hash.slice(1);
         const searchParams = new URLSearchParams(queryString);
     
-        searchParams.set("s", formData.get("search"));
+        searchParams.set("pokemon", formData.get("search"));
         //reset to page 1 as this is new search and
         //we don't know how many pages
         searchParams.set("page", 1);
