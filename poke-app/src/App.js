@@ -20,20 +20,19 @@ export default class App extends Component{
     const URL = `${url}?${queryString}`;
     const response = await fetch(URL);
     const data = await response.json();
-    const serchResult = response.serchResult;
-    console.log(serchResult);
+    const totalCount = response.totalCount;
+    console.log(totalCount);
     if(data.Reseponse ==="False"){
       return {
         Search:[],
-        serchResult:0
+        totalCount:0
       }
     }
     this.setState(
       {pokeData:data.results, 
-      serchResult:data.count ,
+      totalCount:data.count ,
       loading:false})
-    console.log(data.results);
-    console.log(this.state.pokeData);
+
     window.addEventListener("hashchange", async () => {
       const url = "https://alchemy-pokedex.herokuapp.com/api/pokedex";
     let queryString = window.location.hash.slice(1);
@@ -41,24 +40,24 @@ export default class App extends Component{
     const URL = `${url}?${queryString}`;
     const response = await fetch(URL);
     const data = await response.json();
-    const serchResult = response.serchResult;
-    console.log(serchResult);
+    const totalCount = response.totalCount;
+    console.log(totalCount);
     if(data.Reseponse ==="False"){
       return {
         Search:[],
-        serchResult:0
+        totalCount:0
       }
     }
     this.setState(
       {pokeData:data.results, 
-      serchResult:data.count ,
+      totalCount:data.count ,
       loading:false})
     });
   }
   
 
   render() {
-    const serchResult = this.state;
+    const totalCount = this.state.totalCount;
     return (
       <div>
         {this.state.loading || !this.state.pokeData?(
@@ -69,7 +68,7 @@ export default class App extends Component{
           <div className="all-images">
             <PokeList pokemon={this.state.pokeData}/>
           </div>
-          <Paging serchResult ={serchResult}/>
+          <Paging totalCount ={totalCount}/>
         </div>
         )}
       </div>

@@ -28,17 +28,13 @@ class PokeList extends Component {
         }
 
         render() {
-        let dataArry= this.props.pokemon.filter((singleObject)=>{
-            return singleObject.pokemon.indexOf(this.state.search)!== -1;
-
-         });
          return (
              <div className="all-pokes">
         <form onSubmit={this.handleSubmit}>
             <div className="search">Search pokemon by name: 
                 <input id="search" name="search" type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} placeholder="Search here..."/>
             </div>
-                {dataArry.map((singleObject,i)=>{
+                {this.props.pokemon.map((singleObject,i)=>{
                 return <PokeItem key={i} image={singleObject.url_image} title={singleObject.pokemon} health={singleObject.hp} ability={singleObject.ability_1}/>
                  })}  
         </form>     
